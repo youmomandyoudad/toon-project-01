@@ -11,14 +11,11 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static('public')); // Serve frontend files
 
 // Routes
 app.use('/api', apiRoutes);
 
-// Root endpoint
-app.get('/', (req, res) => {
-    res.send('Personnel Evaluation System Backend is running');
-});
 
 // Start server
 app.listen(PORT, () => {
